@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ahmed Hassan — Information Systems student at Cairo University and aspiring Full Stack Developer.">
+  <title>Ahmed Hassan | Full Stack Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    :root{
+      --bg:#060b16; --bg2:#0a1222; --card:rgba(14,25,45,.72);
+      --line:rgba(148,163,184,.15); --text:#f8fafc; --muted:#9aa9bd;
+      --blue:#4f8cff; --purple:#8b5cf6; --cyan:#22d3ee;
+      --shadow:0 20px 60px rgba(0,0,0,.28);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,system-ui,sans-serif;background:
+      radial-gradient(circle at 85% 12%,rgba(79,140,255,.14),transparent 26%),
+      radial-gradient(circle at 15% 38%,rgba(139,92,246,.10),transparent 24%),var(--bg);
+      color:var(--text);line-height:1.6;overflow-x:hidden}
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1120px,92%);margin:auto}
+    header{position:fixed;top:0;left:0;width:100%;z-index:50;background:rgba(6,11,22,.72);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+    nav{height:74px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:11px;font-size:21px;font-weight:800}
+    .brand i{font-size:27px;color:var(--blue)}
+    .brand span{color:#8db2ff}
+    .navlinks{display:flex;gap:28px;align-items:center}
+    .navlinks a{font-size:14px;color:#c4cfdf;transition:.25s}
+    .navlinks a:hover,.navlinks a.active{color:#fff}
+    .navlinks a.active{color:#78a8ff}
+    .menu{display:none;background:none;border:0;color:white;font-size:24px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid rgba(99,143,255,.8);padding:12px 19px;border-radius:999px;font-weight:700;font-size:14px;transition:.25s}
+    .btn.primary{background:linear-gradient(135deg,var(--blue),var(--purple));border:0;box-shadow:0 12px 35px rgba(79,140,255,.22)}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 14px 35px rgba(79,140,255,.18)}
+    section{padding:100px 0}
+    .hero{min-height:100vh;display:grid;place-items:center;padding-top:110px}
+    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}
+    .eyebrow{color:#77a8ff;font-weight:700;letter-spacing:1.8px;font-size:13px;margin-bottom:12px}
+    h1{font-size:clamp(46px,7vw,76px);line-height:1.02;letter-spacing:-3px;margin-bottom:16px}
+    h1 span{background:linear-gradient(90deg,#fff,#6d9dff,#9b7cff);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .role{font-size:24px;font-weight:700;margin-bottom:16px}.role span{color:#8d78ff}
+    .lead{max-width:590px;color:var(--muted);font-size:17px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin:30px 0}
+    .socials{display:flex;gap:10px;flex-wrap:wrap}
+    .social{display:inline-flex;align-items:center;gap:8px;padding:9px 12px;border:1px solid var(--line);background:rgba(15,27,47,.65);border-radius:12px;color:#cbd5e1;font-size:13px;transition:.25s}
+    .social:hover{transform:translateY(-2px);border-color:rgba(99,143,255,.5)}
+    .social i{font-size:16px}.wa{color:#25d366}.in{color:#60a5fa}.fb{color:#4d8dff}.tt{color:#fff}
+    .portrait-wrap{position:relative;display:flex;justify-content:center}
+    .glow{position:absolute;width:370px;height:370px;border-radius:50%;background:radial-gradient(circle,rgba(79,140,255,.38),rgba(139,92,246,.14),transparent 67%);filter:blur(10px)}
+    .portrait{position:relative;width:min(420px,90%);height:510px;object-fit:cover;object-position:50% 15%;border-radius:220px 220px 30px 30px;border:1px solid rgba(117,153,255,.38);box-shadow:var(--shadow);filter:saturate(1.05)}
+    .section-title{text-align:center;margin-bottom:48px}.section-title .eyebrow{margin-bottom:6px}
+    h2{font-size:38px;letter-spacing:-1.5px}.gradient{color:#8aaaff}
+    .about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px;align-items:center}
+    .about-img{width:100%;max-width:390px;border-radius:25px;border:1px solid var(--line);box-shadow:var(--shadow)}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:27px;box-shadow:var(--shadow)}
+    .about-copy h3{font-size:29px;margin-bottom:12px}.about-copy p{color:var(--muted);margin-bottom:15px}
+    .facts{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:20px}
+    .fact{padding:16px;border:1px solid var(--line);border-radius:15px;background:rgba(255,255,255,.025)}
+    .fact i{color:#6ea1ff;margin-right:7px}.fact small{display:block;color:var(--muted);margin-top:3px}
+    .skills{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+    .skill{padding:20px;border:1px solid var(--line);border-radius:17px;background:rgba(14,25,45,.65);text-align:center;transition:.25s}
+    .skill:hover{transform:translateY(-5px);border-color:rgba(99,143,255,.45)}
+    .skill i{font-size:28px;margin-bottom:8px;color:#70a0ff}.skill strong{display:block}.skill small{color:var(--muted)}
+    .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .project{overflow:hidden;padding:0}.project-top{height:160px;background:linear-gradient(135deg,#132c57,#17152f);display:grid;place-items:center;font-size:50px;color:#79a8ff}
+    .project-body{padding:22px}.project-body h3{margin-bottom:7px}.project-body p{color:var(--muted);font-size:14px;margin-bottom:14px}
+    .tags{display:flex;gap:7px;flex-wrap:wrap}.tag{font-size:11px;padding:5px 8px;border-radius:999px;background:#142442;color:#9bbcff}
+    .contact-box{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}
+    .contact-box h2{margin-bottom:12px}.contact-box p{color:var(--muted)}
+    .contact-list{display:grid;gap:10px}.contact-item{display:flex;align-items:center;gap:12px;padding:13px 15px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.025)}
+    .contact-item i{width:24px;text-align:center;color:#75a5ff}
+    footer{border-top:1px solid var(--line);padding:24px 0;color:#74839a;font-size:13px}
+    footer .container{display:flex;justify-content:space-between;gap:15px}
+    .reveal{opacity:0;transform:translateY(25px);transition:.7s ease}.reveal.show{opacity:1;transform:none}
+    @media(max-width:850px){
+      .navlinks{display:none;position:absolute;top:74px;left:0;width:100%;padding:18px 5%;background:rgba(6,11,22,.96);flex-direction:column;align-items:flex-start;border-bottom:1px solid var(--line)}
+      .navlinks.open{display:flex}.menu{display:block}.nav .btn{display:none}
+      .hero-grid,.about-grid,.contact-box{grid-template-columns:1fr}.hero{padding-top:120px}
+      .portrait-wrap{order:-1}.portrait{height:430px;max-width:350px}
+      .skills{grid-template-columns:repeat(2,1fr)}.projects{grid-template-columns:1fr}
+    }
+    @media(max-width:480px){section{padding:75px 0}h1{font-size:48px}.facts{grid-template-columns:1fr}.skills{grid-template-columns:1fr 1fr}.social{font-size:12px}}
+  </style>
+</head>
+<body>
+<header>
+  <nav class="container">
+    <a class="brand" href="#home"><i class="fa-solid fa-code"></i>Ahmed <span>Hassan</span></a>
+    <div class="navlinks" id="navlinks">
+      <a class="active" href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a>
+      <a href="#projects">Projects</a><a href="#contact">Contact</a>
+    </div>
+    <a class="btn" href="#contact"><i class="fa-regular fa-paper-plane"></i> Let's Talk</a>
+    <button class="menu" id="menu"><i class="fa-solid fa-bars"></i></button>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div class="reveal">
+      <div class="eyebrow">HELLO, I'M</div>
+      <h1>Ahmed <span>Hassan</span></h1>
+      <div class="role">Full Stack <span>Developer</span></div>
+      <p class="lead">I'm a third-year Information Systems student at Cairo University passionate about building modern web applications, solving problems, and turning ideas into real digital products.</p>
+      <div class="actions">
+        <a class="btn primary" href="#projects">View My Projects <i class="fa-solid fa-arrow-right"></i></a>
+        <a class="btn" href="#contact">Contact Me <i class="fa-regular fa-envelope"></i></a>
+      </div>
+      <div class="socials">
+        <a class="social" href="https://wa.me/201067871531" target="_blank"><i class="fa-brands fa-whatsapp wa"></i> WhatsApp</a>
+        <a class="social" href="https://www.linkedin.com/in/ahmed-hassan-b0b91a32b" target="_blank"><i class="fa-brands fa-linkedin in"></i> LinkedIn</a>
+        <a class="social" href="https://www.facebook.com/share/1c5mvKgFit/" target="_blank"><i class="fa-brands fa-facebook fb"></i> Facebook</a>
+        <a class="social" href="https://www.tiktok.com/@ahmed.hassan3372" target="_blank"><i class="fa-brands fa-tiktok tt"></i> TikTok</a>
+        <a class="social" href="https://github.com/ahmed-hassan06" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+      </div>
+    </div>
+    <div class="portrait-wrap reveal"><div class="glow"></div><img class="portrait" src="profile.jpg" alt="Ahmed Hassan"></div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container about-grid">
+    <div class="reveal"><img class="about-img" src="profile.jpg" alt="Ahmed Hassan"></div>
+    <div class="about-copy reveal">
+      <div class="eyebrow">ABOUT ME</div><h2>Who <span class="gradient">I Am</span></h2>
+      <p>I'm Ahmed Hassan, a third-year Information Systems student at the Faculty of Computers and Artificial Intelligence, Cairo University. I enjoy creating useful, clean, and responsive web experiences.</p>
+      <p>I've worked on projects such as <strong>CodeStart Academy</strong> and other web applications, while continuously improving my development skills.</p>
+      <div class="facts">
+        <div class="fact"><i class="fa-solid fa-graduation-cap"></i><strong>Information Systems</strong><small>Third Year, Cairo University</small></div>
+        <div class="fact"><i class="fa-solid fa-laptop-code"></i><strong>Full Stack</strong><small>Web Development</small></div>
+        <div class="fact"><i class="fa-solid fa-location-dot"></i><strong>Egypt</strong><small>Based in Egypt</small></div>
+        <div class="fact"><i class="fa-solid fa-rocket"></i><strong>Always Learning</strong><small>New technologies & ideas</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <div class="section-title reveal"><div class="eyebrow">MY SKILLS</div><h2>Technologies <span class="gradient">& Tools</span></h2></div>
+    <div class="skills">
+      <div class="skill reveal"><i class="fa-brands fa-html5"></i><strong>HTML5</strong><small>Semantic UI</small></div>
+      <div class="skill reveal"><i class="fa-brands fa-css3-alt"></i><strong>CSS3</strong><small>Responsive Design</small></div>
+      <div class="skill reveal"><i class="fa-brands fa-js"></i><strong>JavaScript</strong><small>Modern JS</small></div>
+      <div class="skill reveal"><i class="fa-brands fa-react"></i><strong>React</strong><small>Frontend</small></div>
+      <div class="skill reveal"><i class="fa-brands fa-node-js"></i><strong>Node.js</strong><small>Backend</small></div>
+      <div class="skill reveal"><i class="fa-solid fa-server"></i><strong>Express.js</strong><small>REST APIs</small></div>
+      <div class="skill reveal"><i class="fa-solid fa-database"></i><strong>MongoDB</strong><small>Database</small></div>
+      <div class="skill reveal"><i class="fa-brands fa-git-alt"></i><strong>Git & GitHub</strong><small>Version Control</small></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="section-title reveal"><div class="eyebrow">MY WORK</div><h2>Featured <span class="gradient">Projects</span></h2></div>
+    <div class="projects">
+      <article class="project card reveal"><div class="project-top"><i class="fa-solid fa-graduation-cap"></i></div><div class="project-body"><h3>CodeStart Academy</h3><p>An educational platform concept designed to make learning development more organized and accessible.</p><div class="tags"><span class="tag">Web App</span><span class="tag">Full Stack</span><span class="tag">Education</span></div></div></article>
+      <article class="project card reveal"><div class="project-top"><i class="fa-solid fa-chart-line"></i></div><div class="project-body"><h3>Academic Management</h3><p>A university-focused management project for organizing academic information and workflows.</p><div class="tags"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">MongoDB</span></div></div></article>
+      <article class="project card reveal"><div class="project-top"><i class="fa-solid fa-cart-shopping"></i></div><div class="project-body"><h3>E-Commerce Website</h3><p>A modern online-store project focused on clean UI, product browsing, and responsive experiences.</p><div class="tags"><span class="tag">Frontend</span><span class="tag">API</span><span class="tag">Responsive</span></div></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="contact-box card reveal">
+      <div><div class="eyebrow">GET IN TOUCH</div><h2>Let's build something <span class="gradient">great.</span></h2><p>Have a project, idea, or opportunity? Feel free to reach out through any of the links.</p></div>
+      <div class="contact-list">
+        <a class="contact-item" href="https://wa.me/201067871531" target="_blank"><i class="fa-brands fa-whatsapp"></i><span>+20 106 787 1531</span></a>
+        <a class="contact-item" href="https://www.linkedin.com/in/ahmed-hassan-b0b91a32b" target="_blank"><i class="fa-brands fa-linkedin"></i><span>LinkedIn Profile</span></a>
+        <a class="contact-item" href="https://www.facebook.com/share/1c5mvKgFit/" target="_blank"><i class="fa-brands fa-facebook"></i><span>Facebook Profile</span></a>
+        <a class="contact-item" href="https://www.tiktok.com/@ahmed.hassan3372" target="_blank"><i class="fa-brands fa-tiktok"></i><span>@ahmed.hassan3372</span></a>
+        <a class="contact-item" href="https://github.com/ahmed-hassan06" target="_blank"><i class="fa-brands fa-github"></i><span>github.com/ahmed-hassan06</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="container"><span>© <span id="year"></span> Ahmed Hassan. All rights reserved.</span><span>Built with <i class="fa-solid fa-heart"></i> & code.</span></div></footer>
+
+<script>
+  const menu=document.getElementById('menu'), links=document.getElementById('navlinks');
+  menu.addEventListener('click',()=>links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+  document.getElementById('year').textContent=new Date().getFullYear();
+  const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  const sections=[...document.querySelectorAll('section')], nav=[...document.querySelectorAll('.navlinks a')];
+  window.addEventListener('scroll',()=>{let current='home'; sections.forEach(s=>{if(scrollY>=s.offsetTop-160)current=s.id});nav.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+current))});
+</script>
+</body>
+</html>
